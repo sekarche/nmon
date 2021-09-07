@@ -1,0 +1,69 @@
+Type the following apt-get command:
+# apt-get install nmon
+
+Grab the source code and makefile using wget command:
+$ wget http://ncu.dl.sourceforge.net/project/nmon/lmon14g.c
+$ wget http://ncu.dl.sourceforge.net/project/nmon/makefile
+
+How do I use nmon?
+Simply type the following command:
+# nmon
+
+lnmonq16iqqqqqq[H for help]qqqHostname=comitup-205qqRefresh= 2secs qqq13:50.15qk
+x                                                                              x
+x   ------------------------------                                             x
+x    _ __  _ __ ___   ___  _ __          For help type H or ...                x
+x   | '_ \| '_ ` _ \ / _ \| '_ \          nmon -?  - hint                      x
+x   | | | | | | | | | (_) | | | |         nmon -h  - full details              x
+x   |_| |_|_| |_| |_|\___/|_| |_|                                              x
+x                                        To stop nmon type q to Quit           x
+x   ------------------------------                                             x
+x                                                                              x
+x                                                                              x
+x                                                                              x
+x                                                                              x
+x                                                                              x
+x                                                                              x
+x                                                                              x
+x   Use these keys to toggle statistics on/off:                                x
+x     c = CPU         l = CPU Long-term     - = Faster screen updates          x
+x     C = " WideView  U = Utilisation       + = Slower screen updates          x
+x     m = Memory      V = Virtual memory    j = File Systems                   x
+x     d = Disks       n = Network           . = only busy disks/procs          x
+x     r = Resource    N = NFS               h = more options                   x
+x     k = Kernel      t = Top-processes     q = Quit                           x
+mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj
+
+
+nmon keyboard shortcuts
+q – To stop and exit nmon.
+h – To see quick help (hint) screen and press h again to remove the hints.
+Use the following command to turn on or off stats:
+c – See cpu stats.
+m – See memory stats.
+d – See disk stats.
+k – See kernel stats.
+n – See network stats.
+N – See NFS stats.
+j – See file system stats.
+t – See top process.
+V – See virtual memory stats.
+. – See only busy disks/procs.
+v – Verbose mode (display as Ok/warning/danger on screen).
+
+Capturing and analyzing data with nmon
+You can capture the data to a file for later analysis and graphing. Type the following command:
+# nmon -f -s2 -c 30
+
+OR
+# nmon -ft -s 30 -c 120
+
+nmon will run as a daemon in the background and you can log out. nmon will complete the data file capture and it will save in a file *.nmon file such as nas02_120806_0202.nmon. Where,
+
+-f : Start data collect mode and output in spreadsheet format.
+-s 2 : Wait between 2 seconds refreshing the screen.
+-c30 : Total number of refreshes (30).
+-t : Spreadsheet includes top processes.
+-d disks : to increase the number of disks [default 256]
+-x : Capacity planning (15 min for 1 day = -fdt -s 900 -c 96)
+You need to download nmonanalyser which is an Excel spreadsheet that takes an output file from nmon and produces some nice graphs to aid in analysis and report writing.
